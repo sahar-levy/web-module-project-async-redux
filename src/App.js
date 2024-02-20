@@ -4,7 +4,7 @@ import PlantForm from './components/PlantForm';
 import PlantNames from './components/PlantNames';
 
 function App(props) {
-  const { loading } = props;
+  const { loading, error } = props;
 
   return (
     <div>
@@ -13,7 +13,13 @@ function App(props) {
 
       <PlantForm />
 
-      { loading ? <h3>Loading..</h3> : <PlantNames /> };
+      { 
+        (error !== '') && <h3>{error}</h3>
+      }
+
+      { 
+        loading ? <h3>Loading..</h3> : <PlantNames /> 
+      };
 
     </div>
   );

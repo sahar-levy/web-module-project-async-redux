@@ -17,7 +17,7 @@ const PlantNames = (props) => {
 
 const mapStateToProps = state => {
     return {
-        plantNames: data
+        plantNames: state.data
     }
 }
 
