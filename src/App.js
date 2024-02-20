@@ -1,9 +1,10 @@
 import React from 'react';
-import data from './data/data'
-import PlantForm from './components/PlantForm'
+import { connect } from 'react-redux';
+import PlantForm from './components/PlantForm';
+import PlantNames from './components/PlantNames';
 
-function App() {
-  const plantNames = data;
+function App(props) {
+  const { loading } = props;
 
   return (
     <div>
@@ -12,16 +13,16 @@ function App() {
 
       <PlantForm />
 
-      {
-        plantNames.map(plant => (
-          <div key={plant.id}>
-            <div>{plant.common_name}</div>
-            <div>{plant.scientific_name}</div>
-          </div>
-      ))};
+      { loading ? <h3>Loading..</h3> : <PlantNames /> };
 
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    loading: state.loading
+  }
+}
+
+export default connect(mapStateToProps, {})(App);
