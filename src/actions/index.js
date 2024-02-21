@@ -11,8 +11,8 @@ export const FETCH_FAIL = 'FETCH_FAIL'
 
 // thunk action - returns a fxn!
 // this demonstrates a finite state machine
-export const getPlantNames = () => {
-    const URL = 'https://perenual.com/api/species-list?key=sk-qwYX65d2cf42b69164239'
+export const getPlantNames = (searchTerm) => {
+    const URL = `https://perenual.com/api/species-list?key=sk-qwYX65d2cf42b69164239&q=${searchTerm}`
     return(dispatch => {
         // props.fetchStart()
             dispatch(fetchStart())

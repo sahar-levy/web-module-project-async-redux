@@ -16,7 +16,7 @@ function App(props) {
   return (
     <div>
       
-      <h1>Botanical and Common Plant Name Generator</h1>
+      <h1>Plant Species Generator</h1>
 
       <PlantForm />
 
