@@ -10,15 +10,36 @@
 
 import data from './../data/data'
 
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from './../actions'
+
 const initialState = {
-    plantNames: [],
+    plantNames: data,
     loading: false,
     error: ''
 }
 
 const reducer = (state = initialState, action ) => {
     switch(action.type) {
-        
+        // fetch data - show loading screen
+        case FETCH_START:
+            return {
+                ...state,
+                loading: true,
+                error: '' //clears any existing errors
+            }
+        case FETCH_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                plantNames: action.payload,
+                error: ''
+            }
+        case FETCH_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: 'Failed to submit, please try again..'
+            }
         default:
             return state;
     }

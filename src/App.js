@@ -2,9 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PlantForm from './components/PlantForm';
 import PlantNames from './components/PlantNames';
+import { useEffect } from 'react'
+import { getPlantNames } from './actions';
+
 
 function App(props) {
-  const { loading, error } = props;
+  const { loading, error, getPlantNames } = props;
+
+  useEffect(() => {
+    getPlantNames();
+  }, []); 
 
   return (
     <div>
@@ -31,4 +38,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { getPlantNames })(App);

@@ -1,5 +1,4 @@
 import React from "react";
-import data from "./../data/data";
 import { connect } from "react-redux";
 
 const PlantNames = (props) => {
@@ -17,7 +16,7 @@ const PlantNames = (props) => {
 
 const mapStateToProps = state => {
     return {
-        plantNames: state.data
+        plantNames: state.plantNames
     }
 }
 
